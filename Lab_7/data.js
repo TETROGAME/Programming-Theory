@@ -1,0 +1,29 @@
+const ObjInf = [
+  { id: '1', description: 'Лёгкий ноутбук для работы и поездок, быстро включается и долго держит заряд.', createdAt: new Date('2026-01-12T10:00:00'), author: 'Иванов Иван', name: 'Vigo Book X 14', type: 'laptop', price: 1500, cores: 8, ram: 16, storage: 512 },
+  { id: '2', description: 'Настольный компьютер для офиса и учёбы, тихий корпус и запас по производительности.', createdAt: new Date('2026-01-20T12:30:00'), author: 'Петрова Анна', name: 'Pulse Tower 7', type: 'desktop', price: 2350, cores: 12, ram: 32, storage: 1024 },
+  { id: '3', description: 'Двухпроцессорный сервер в стойку для виртуализации и баз данных.', createdAt: new Date('2026-02-03T09:15:00'), author: 'Савицкий Олег', name: 'Rack Node R2', type: 'server', price: 9800, cores: 48, ram: 128, storage: 4096 },
+  { id: '4', description: 'Карманный компьютер с защищённым корпусом для работы на складе и в поле.', createdAt: new Date('2026-02-14T15:40:00'), author: 'Иванов Иван', name: 'Pocket Go 6', type: 'handheld', price: 780, cores: 8, ram: 8, storage: 256 },
+  { id: '5', description: 'Тонкий ультрабук с яркой матрицей, подходит для презентаций и документов.', createdAt: new Date('2026-02-27T11:05:00'), author: 'Петрова Анна', name: 'Vigo Book Air 13', type: 'laptop', price: 1280, cores: 6, ram: 16, storage: 512 },
+  { id: '6', description: 'Компактный мини-ПК, который помещается за монитором и не шумит.', createdAt: new Date('2026-03-05T14:20:00'), author: 'Савицкий Олег', name: 'Pulse Mini 3', type: 'desktop', price: 990, cores: 6, ram: 16, storage: 512 },
+  { id: '7', description: 'Сервер начального уровня для файлового хранилища и внутренних сервисов компании.', createdAt: new Date('2026-03-18T10:10:00'), author: 'Иванов Иван', name: 'Rack Node R1', type: 'server', price: 6400, cores: 32, ram: 64, storage: 2048 },
+  { id: '8', description: 'Недорогой карманный компьютер для сканирования штрихкодов и учёта товара.', createdAt: new Date('2026-03-29T16:45:00'), author: 'Петрова Анна', name: 'Pocket Lite 4', type: 'handheld', price: 560, cores: 4, ram: 6, storage: 128 },
+  { id: '9', description: 'Мощный ноутбук для монтажа видео и 3D-графики с большим экраном.', createdAt: new Date('2026-04-08T09:00:00'), author: 'Савицкий Олег', name: 'Vigo Book Pro 16', type: 'laptop', price: 3200, cores: 12, ram: 32, storage: 1024 },
+  { id: '10', description: 'Универсальный системный блок для дома и небольшого офиса.', createdAt: new Date('2026-04-19T13:25:00'), author: 'Иванов Иван', name: 'Pulse Tower 5', type: 'desktop', price: 1750, cores: 8, ram: 16, storage: 1024 },
+  { id: '11', description: 'Флагманский сервер для высоконагруженных систем с резервированием питания.', createdAt: new Date('2026-05-02T10:50:00'), author: 'Петрова Анна', name: 'Rack Node R4', type: 'server', price: 15600, cores: 64, ram: 256, storage: 8192 },
+  { id: '12', description: 'Карманный компьютер с большим экраном и ёмкой батареей на целую смену.', createdAt: new Date('2026-05-16T12:00:00'), author: 'Савицкий Олег', name: 'Pocket Go 8', type: 'handheld', price: 1050, cores: 8, ram: 12, storage: 512 },
+  { id: '13', description: 'Бюджетный ноутбук для учёбы и повседневных задач.', createdAt: new Date('2026-05-30T17:30:00'), author: 'Иванов Иван', name: 'Vigo Book Go 15', type: 'laptop', price: 890, cores: 4, ram: 8, storage: 256 },
+  { id: '14', description: 'Рабочая станция для инженерных расчётов и обработки больших данных.', createdAt: new Date('2026-06-11T09:40:00'), author: 'Петрова Анна', name: 'Pulse Station 9', type: 'desktop', price: 3900, cores: 16, ram: 64, storage: 2048 },
+  { id: '15', description: 'Компактный сервер для филиала или небольшой серверной комнаты.', createdAt: new Date('2026-06-25T14:10:00'), author: 'Савицкий Олег', name: 'Rack Node Edge', type: 'server', price: 4100, cores: 16, ram: 32, storage: 1024 },
+  { id: '16', description: 'Профессиональный карманный компьютер с защитой от пыли и влаги.', createdAt: new Date('2026-07-07T11:35:00'), author: 'Иванов Иван', name: 'Pocket Pro 10', type: 'handheld', price: 1450, cores: 10, ram: 16, storage: 512 },
+  { id: '17', description: 'Ноутбук для разработчиков с удобной клавиатурой и быстрым накопителем.', createdAt: new Date('2026-07-21T16:00:00'), author: 'Петрова Анна', name: 'Vigo Book Neo 14', type: 'laptop', price: 1950, cores: 8, ram: 16, storage: 1024 },
+  { id: '18', description: 'Простой офисный компьютер для бухгалтерии и приёма заказов.', createdAt: new Date('2026-08-04T10:20:00'), author: 'Савицкий Олег', name: 'Pulse Office 2', type: 'desktop', price: 720, cores: 4, ram: 8, storage: 256 },
+  { id: '19', description: 'Сервер с дисковой корзиной для резервных копий и архивов.', createdAt: new Date('2026-08-18T15:15:00'), author: 'Иванов Иван', name: 'Rack Node Storage', type: 'server', price: 7200, cores: 24, ram: 64, storage: 16384 },
+  { id: '20', description: 'Небольшой карманный компьютер для курьеров и выездных сотрудников.', createdAt: new Date('2026-09-02T09:30:00'), author: 'Петрова Анна', name: 'Pocket Mini 5', type: 'handheld', price: 640, cores: 6, ram: 6, storage: 256 },
+  { id: '21', description: 'Ноутбук для дизайнеров с цветным экраном и мощной графикой.', createdAt: new Date('2026-09-20T13:45:00'), author: 'Савицкий Олег', name: 'Vigo Book Studio 16', type: 'laptop', price: 4300, cores: 14, ram: 64, storage: 2048 }
+];
+
+const USERS = [
+  { id: '1', name: 'Иванов Иван', email: 'ivanov@shop.example', password: 'admin123', role: 'admin' },
+  { id: '2', name: 'Петрова Анна', email: 'petrova@shop.example', password: 'staff123', role: 'staff' },
+  { id: '3', name: 'Савицкий Олег', email: 'savitsky@shop.example', password: 'manager123', role: 'manager' }
+];
