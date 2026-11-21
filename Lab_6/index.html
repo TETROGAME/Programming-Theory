@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Продажа компьютеров</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <div class="bar">
+      <h1>Продажа компьютеров <small>Интернет-магазин с установкой ПО</small></h1>
+      <nav aria-label="Главное меню">
+        <ul>
+          <li><a href="#home">Главная</a></li>
+          <li data-auth><a href="#orders">Заказы</a></li>
+          <li data-auth><a href="#users">Пользователи</a></li>
+          <li id="auth"><a href="#login">Войти</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="screen" id="order-new">
+      <h2>Оформление заказа</h2>
+      <p class="note">Форма добавления. Кнопка «Оформить заказ» возвращает на <a href="#home">главную</a>, при ошибке открывается <a href="#error">форма «Ошибка»</a>. Кнопка «Отмена» ведёт на <a href="#home">главную</a>.</p>
+      <form action="#home">
+        <fieldset>
+          <legend>Клиент</legend>
+          <div class="field"><label for="n-name">ФИО</label><input id="n-name" name="name" required></div>
+          <div class="field"><label for="n-mail">Электронная почта</label><input id="n-mail" name="mail" type="email" required></div>
+        </fieldset>
+        <fieldset>
+          <legend>Адреса</legend>
+          <div class="field"><label for="n-ship">Адрес доставки</label><input id="n-ship" name="ship" required></div>
+          <div class="field"><label for="n-bill">Адрес для счёта-фактуры</label><input id="n-bill" name="bill" required></div>
+        </fieldset>
+        <fieldset>
+          <legend>Способ оплаты</legend>
+          <label class="choice"><input type="radio" name="pay" value="cash" checked> Наличными курьеру</label>
+          <label class="choice"><input type="radio" name="pay" value="bank"> Банковским переводом</label>
+        </fieldset>
+        <label class="choice"><input type="checkbox" name="sw"> Установить и протестировать ПО</label>
+        <div class="actions">
+          <button type="submit">Оформить заказ</button>
+          <a class="btn ghost" href="#home">Отмена</a>
+        </div>
+      </form>
+    </section>
+    <section class="screen" id="orders">
+      <h2>Реестр заказов</h2>
+      <p class="note">Форма поиска и просмотра. «Изменить» открывает <a href="#order-edit">редактирование заказа</a>, «Аннулировать» — <a href="#order-delete">подтверждение удаления</a>.</p>
+      <form class="search" action="#orders" role="search">
+        <div class="field"><label for="o-q">Номер заказа или клиент</label><input id="o-q" name="q" type="search"></div>
+        <div class="field"><label for="o-sort">Сортировка</label>
+          <select id="o-sort" name="sort"><option>Сначала новые</option><option>Сначала старые</option><option>По сумме</option></select></div>
+        <button type="submit">Найти</button>
+      </form>
+      <ul class="rows">
+        <li class="head"><span>№</span><span>Клиент</span><span>Сумма</span><span>Статус</span><span></span></li>
+        <li><span>71</span><span>Козлов А. П.</span><span>2 350 BYN</span><span class="badge wait">Ожидает оплаты</span><span class="row-actions"><a class="btn small ghost" href="#order-edit">Изменить</a><a class="btn small danger" href="#order-delete">Аннулировать</a></span></li>
+        <li><span>70</span><span>Нестерович И. С.</span><span>780 BYN</span><span class="badge">Отправлен</span><span class="row-actions"><a class="btn small ghost" href="#order-edit">Изменить</a><a class="btn small danger" href="#order-delete">Аннулировать</a></span></li>
+        <li><span>69</span><span>Лис Е. В.</span><span>9 800 BYN</span><span class="badge">Собран</span><span class="row-actions"><a class="btn small ghost" href="#order-edit">Изменить</a><a class="btn small danger" href="#order-delete">Аннулировать</a></span></li>
+      </ul>
+      <nav class="pager" aria-label="Страницы реестра">
+        <button type="button" class="ghost">Показать ещё</button>
+        <ol><li><a href="#orders" aria-current="page">1</a></li><li><a href="#orders">2</a></li><li><a href="#orders">Далее</a></li></ol>
+      </nav>
+    </section>
+    <section class="screen" id="order-edit">
+      <h2>Редактирование заказа № 71</h2>
+      <p class="note">Форма редактирования. «Сохранить» и «Отмена» возвращают в <a href="#orders">реестр заказов</a>, «Аннулировать» открывает <a href="#order-delete">подтверждение удаления</a>.</p>
+      <form action="#orders">
+        <div class="field"><label for="e-st">Статус заказа</label>
+          <select id="e-st" name="st"><option>Ожидает оплаты</option><option>Поставлен в очередь</option><option>Собран</option><option>Отправлен</option><option>Выполнен</option></select></div>
+        <div class="field"><label for="e-ship">Адрес доставки</label><input id="e-ship" name="ship" value="Минск, пр. Независимости, 4"></div>
+        <label class="choice"><input type="checkbox" name="paid"> Оплата поступила на счёт магазина</label>
+        <div class="actions">
+          <button type="submit">Сохранить</button>
+          <a class="btn ghost" href="#orders">Отмена</a>
+          <a class="btn danger" href="#order-delete">Аннулировать</a>
+        </div>
+      </form>
+    </section>
+    <section class="screen" id="order-delete">
+      <h2>Аннулировать заказ № 71?</h2>
+      <p class="note">Форма удаления. Обе кнопки возвращают в <a href="#orders">реестр заказов</a>.</p>
+      <p>Заказ получит статус «Аннулирован», а клиент получит уведомление по почте. Отменить действие нельзя.</p>
+      <form action="#orders">
+        <div class="actions">
+          <button type="submit" class="danger">Аннулировать</button>
+          <a class="btn ghost" href="#orders">Оставить заказ</a>
+        </div>
+      </form>
+    </section>
+    <section class="screen" id="login">
+      <h2>Вход</h2>
+      <p class="note">Форма авторизации. После входа открывается <a href="#orders">реестр заказов</a>.</p>
+      <form action="#orders">
+        <div class="field"><label for="l-mail">Электронная почта</label><input id="l-mail" name="mail" type="email" required></div>
+        <div class="field"><label for="l-pass">Пароль</label><input id="l-pass" name="pass" type="password" required></div>
+        <div class="actions"><button type="submit">Войти</button><a class="btn ghost" href="#home">Отмена</a></div>
+      </form>
+    </section>
+    <section class="screen" id="users">
+      <h2>Пользователи</h2>
+      <p class="note">Форма администратора: добавление, редактирование и удаление пользователей. «Сохранить» и «Отмена» возвращают на <a href="#home">главную</a>.</p>
+      <ul class="rows users">
+        <li class="head"><span>ФИО</span><span>Почта</span><span>Роль</span><span></span></li>
+        <li><span>Петрова А. В.</span><span>petrova@shop.example</span><span>Работник магазина</span><span class="row-actions"><button type="button" class="small ghost">Изменить</button><button type="button" class="small danger">Удалить</button></span></li>
+        <li><span>Савицкий О. И.</span><span>savitsky@shop.example</span><span>Менеджер</span><span class="row-actions"><button type="button" class="small ghost">Изменить</button><button type="button" class="small danger">Удалить</button></span></li>
+      </ul>
+      <form action="#home">
+        <fieldset>
+          <legend>Добавление пользователя</legend>
+          <div class="field"><label for="u-name">ФИО</label><input id="u-name" name="name" required></div>
+          <div class="field"><label for="u-mail">Электронная почта</label><input id="u-mail" name="mail" type="email" required></div>
+          <div class="field"><label for="u-role">Роль</label>
+            <select id="u-role" name="role"><option>Работник магазина</option><option>Менеджер</option><option>Курьер</option><option>Склад</option></select></div>
+        </fieldset>
+        <div class="actions"><button type="submit">Сохранить</button><a class="btn ghost" href="#home">Отмена</a></div>
+      </form>
+    </section>
+    <section class="screen" id="error">
+      <div class="alert" role="alert">
+        <h2>Заказ не оформлен</h2>
+        <p>Форма не отправлена. Исправьте поля:</p>
+        <ul><li>Адрес доставки: укажите улицу и номер дома.</li><li>Электронная почта: адрес должен содержать «@».</li></ul>
+        <a class="btn" href="#order-new">Вернуться к форме</a>
+      </div>
+      <p class="note">Форма «Ошибка». Кнопка ведёт на <a href="#order-new">оформление заказа</a>.</p>
+    </section>
+    <section id="home">
+      <h2>Каталог компьютеров</h2>
+      <p class="muted">Серверы, настольные, портативные и карманные компьютеры. Выберите модель и оформите заказ.</p>
+      <p class="note">Главная страница. Список компьютеров создаётся скриптом из массива данных. Кнопка «Заказать» ведёт на форму <a href="#order-new">оформления заказа</a>.</p>
+
+      <div class="layout">
+        <form class="filters" action="#home" aria-label="Фильтры">
+          <fieldset id="filter-types"><legend>Тип компьютера</legend></fieldset>
+          <div class="field"><label for="filter-author">Автор записи</label><select id="filter-author" name="author"></select></div>
+          <div class="field"><label for="pmax">Цена до, BYN</label><input id="pmax" name="pmax" type="number" min="0" step="50"></div>
+          <div class="actions"><button type="submit">Применить</button><button type="reset" class="ghost">Сбросить</button></div>
+        </form>
+
+        <div>
+          <form class="search" action="#home" role="search">
+            <div class="field"><label for="q">Поиск по названию</label><input id="q" name="q" type="search"></div>
+            <div class="field"><label for="sort">Сортировка</label>
+              <select id="sort" name="sort"><option>Сначала дешёвые</option><option>Сначала дорогие</option><option>По названию</option></select></div>
+            <button type="submit">Найти</button>
+          </form>
+
+          <div class="actions" id="staff-actions"></div>
+          <p class="muted" id="count"></p>
+          <ul class="items" id="items"></ul>
+
+          <div class="pager"><button type="button" class="ghost" id="more">Показать ещё</button></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="bar">
+      <p>АИС «Продажа компьютеров»<br>Минск, ул. Примерная, 1</p>
+      <p>Тел. +375 17 000-00-00<br>Пн–Сб, 9:00–20:00</p>
+      <p>Лабораторная работа №5<br>БГУ, ФПМИ, 2026</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="model.js"></script>
+  <script src="view.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
